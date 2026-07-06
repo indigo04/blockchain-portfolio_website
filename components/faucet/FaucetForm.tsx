@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import { PrimaryButton } from "../shared/PrimaryButton";
+import { useAccount } from "wagmi";
 
 export const FaucetForm = () => {
   const [tokens, setTokens] = useState("");
+  const { isConnected } = useAccount();
+  console.log(isConnected);
   return (
     <form className="p-4 xl:shrink-0 xl:w-xs w-full bg-surface rounded-xl border flex flex-col gap-2 border-muted/25">
       <h2 className="text-3xl text-text font-bold">Request Tokens</h2>
@@ -25,7 +28,15 @@ export const FaucetForm = () => {
           $WIL
         </span>
       </div>
-      <PrimaryButton>Mint Tokens</PrimaryButton>
+      <PrimaryButton
+        type="submit"
+        disabled={!isConnected || tokens.length === 0}
+      >
+        Mint Tokens
+      </PrimaryButton>
+      {!isConnected && (
+        <p className="text-muted text-md">Connect your wallet</p>
+      )}
     </form>
   );
 };

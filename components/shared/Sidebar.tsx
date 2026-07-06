@@ -10,6 +10,7 @@ import { Logo } from "./Logo";
 import { useEffect } from "react";
 import image from "../../assets/mobile-menu_poster.png";
 import Image from "next/image";
+import { BackgroundGlow } from "./BackgroundGlow";
 
 type Props = {
   isOpen: boolean;
@@ -39,12 +40,13 @@ export const Sidebar = ({ isOpen, onClose }: Props) => {
   return (
     <aside
       className={
-        "top-0 left-0 h-screen py-6 px-3 w-fit xl:flex flex-col gap-6 border-r border-muted/25 " +
+        "top-0 left-0 min-h-screen p-4 w-fit xl:flex flex-col gap-6 border-r border-muted/25 " +
         (isOpen
           ? "absolute z-50 bg-background w-full flex"
           : "hidden xl:flex relative")
       }
     >
+      {isOpen && <BackgroundGlow />}
       <div className="flex items-center justify-between">
         <Logo />
         {isOpen && (
@@ -79,7 +81,12 @@ export const Sidebar = ({ isOpen, onClose }: Props) => {
       </nav>
       <ConnectWalletButton />
 
-      <Image src={image} alt="poster" className="h-80 w-fit aspect-square" />
+      <Image
+        src={image}
+        alt="poster"
+        loading="eager"
+        className="h-80 w-fit aspect-square md:object-cover md:object-top md:w-full"
+      />
     </aside>
   );
 };

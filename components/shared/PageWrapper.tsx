@@ -9,6 +9,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { Header } from "./Header";
 import { useState } from "react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { BackgroundGlow } from "./BackgroundGlow";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ export const PageWrapper = ({ children }: { children: React.ReactNode }) => {
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider theme={darkTheme()} locale="en-US">
           <main className="flex flex-col relative min-h-screen xl:flex-row">
+            <BackgroundGlow />
             <Header
               handleSidebarOpen={() => {
                 if (isMobile) {
@@ -32,7 +34,7 @@ export const PageWrapper = ({ children }: { children: React.ReactNode }) => {
               isOpen={isMobile ? isOpen : false}
               onClose={() => setIsOpen(false)}
             />
-            <div className="w-full flex flex-col gap-4 p-4 xl:p-9">
+            <div className="w-full flex flex-col gap-4 p-4 xl:p-6">
               {children}
             </div>
           </main>
