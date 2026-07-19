@@ -1,7 +1,18 @@
-export default function Home() {
+import { MarketplaceHeader } from "@/components/marketplace/MarketplaceHeader";
+import { MarketplaceWrapper } from "@/components/marketplace/MarketplaceWrapper";
+import { Suspense } from "react";
+
+type PageProps = {
+  searchParams: Promise<{ query?: string }>;
+};
+
+export default function Home({ searchParams }: PageProps) {
   return (
     <>
-      <h1>Home</h1>
+      <MarketplaceHeader />
+      <Suspense fallback={<div>Loading...</div>}>
+        <MarketplaceWrapper searchParams={searchParams} />
+      </Suspense>
     </>
   );
 }

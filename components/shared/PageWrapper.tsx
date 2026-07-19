@@ -21,7 +21,7 @@ export const PageWrapper = ({ children }: { children: React.ReactNode }) => {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider theme={darkTheme()} locale="en-US">
-          <main className="flex flex-col relative min-h-screen xl:flex-row">
+          <main className="flex flex-col relative min-h-screen xl:flex-row xl:gap-8">
             <BackgroundGlow />
             <Header
               handleSidebarOpen={() => {

@@ -85,7 +85,7 @@ export const Sidebar = ({ isOpen, onClose }: Props) => {
         src={image}
         alt="poster"
         loading="eager"
-        className="h-80 w-fit aspect-square md:object-cover md:object-top md:w-full"
+        className="xl:h-80 w-fit aspect-square md:object-cover md:object-top md:w-full"
       />
     </aside>
   );
