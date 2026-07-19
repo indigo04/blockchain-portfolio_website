@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Author: indigo04
 
-## Getting Started
+### Contracts
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+https://github.com/indigo04/blockchain-portfolio_contracts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Indexer
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+https://github.com/indigo04/blockchain-portfolio_indexer
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Frontend
 
-## Learn More
+```
+https://github.com/indigo04/blockchain-portfolio_website
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Preview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+https://blockchain-portfolio-website-s6at.vercel.app
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Contracts Addresses
+```
+0x594A089a67Fce318977b23cD7e89340fA588133C - NFT Factory
+```
 
-## Deploy on Vercel
+```
+0x31D9052DfC3A6Ed999a64595B27863E2DDA1d79B - ERC20 Token
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+0xF2f314a96650dDBb29a5024363779e154fC74248 - Marketplace
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+0x60405D07024822a8E3FC4E0F7eeeAF4C490F2A14 - ERC721 Token
+```
