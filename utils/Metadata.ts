@@ -3,6 +3,7 @@ import { sepolia } from "viem/chains";
 import abi from "../abi/NftToken.json";
 
 const gatewayURL = process.env.NEXT_PUBLIC_PINATA_GATEWAY || "";
+const gatewayToken = process.env.NEXT_PUBLIC_PINATA_TOKEN || "";
 const rpcURL = process.env.NEXT_PUBLIC_SEPOLIA_RPC_URL || "";
 
 const publicClient = createPublicClient({
@@ -12,10 +13,24 @@ const publicClient = createPublicClient({
 
 export function formatIpfsUrl(url: string): string {
   if (!url) return "";
-  if (url.startsWith("ipfs://")) {
-    return url.replace("ipfs://", `https://${gatewayURL}/ipfs/`);
+
+  let formattedUrl = url;
+
+  if (formattedUrl.startsWith("ipfs://")) {
+    formattedUrl = formattedUrl.replace(
+      "ipfs://",
+      `https://${gatewayURL}/ipfs/`,
+    );
   }
-  return url;
+
+  if (gatewayToken && formattedUrl.includes(gatewayURL)) {
+    const separator = formattedUrl.includes("?") ? "&" : "?";
+    if (!formattedUrl.includes("pinataGatewayToken=")) {
+      formattedUrl = `${formattedUrl}${separator}pinataGatewayToken=${gatewayToken}`;
+    }
+  }
+
+  return formattedUrl;
 }
 
 export async function fetchNftImage(
